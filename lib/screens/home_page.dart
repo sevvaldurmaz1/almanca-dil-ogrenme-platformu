@@ -5,9 +5,8 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
-
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -25,23 +24,28 @@ class _HomePageState extends State<HomePage> {
     profileImage:
         "https://seeklogo.com/images/G/google-gemini-logo-A5787B2669-seeklogo.com.png",
   );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
-          "Grammar Chack",
+          "PratikDeutsch",
         ),
       ),
-      body: _buildUI(),
+      body: Container(
+        color: Colors.yellow.withOpacity(0.5), // Arka plan rengi
+        child: _buildUI(),
+      ),
     );
   }
 
   Widget _buildUI() {
     return DashChat(
-      inputOptions: InputOptions(trailing: [
-      ]),
+      inputOptions: InputOptions(
+        trailing: [],
+      ),
       currentUser: currentUser,
       onSend: _sendMessage,
       messages: messages,
@@ -53,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       messages = [chatMessage, ...messages];
     });
     try {
-      String question = "Lütfen bu almanca metindeki grammer hatalarını düzelt" + chatMessage.text;
+      String question = "Lütfen benimle almanca sohbet et ve parantez içinde türkçesini yaz: " + chatMessage.text;
       List<Uint8List>? images;
       if (chatMessage.medias?.isNotEmpty ?? false) {
         images = [
@@ -96,6 +100,4 @@ class _HomePageState extends State<HomePage> {
       print(e);
     }
   }
-
-
 }

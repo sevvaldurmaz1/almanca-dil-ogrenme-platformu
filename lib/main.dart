@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:almanca2/consts.dart'; // Sadece bir kez ekleyin
+import 'package:almanca2/consts.dart'; 
 import 'screens/splash_screen.dart';
 import 'screens/login_screen.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(), // Ana sayfa SplashScreen olacak
+      home: SplashScreen(), 
       routes: {
         '/login': (context) => LoginScreen(),
       },
