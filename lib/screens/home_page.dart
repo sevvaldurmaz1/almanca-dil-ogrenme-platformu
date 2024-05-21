@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       messages = [chatMessage, ...messages];
     });
     try {
-      String question = "Lütfen benimle almanca sohbet et ve parantez içinde türkçesini yaz: " + chatMessage.text;
+      String question = "Benimle almanca sohbet et eğer yanlış birşey yazarsam bunu düzelt ve parantez içinde yaz parantez içi türkçe olsun:" + chatMessage.text;
       List<Uint8List>? images;
       if (chatMessage.medias?.isNotEmpty ?? false) {
         images = [
